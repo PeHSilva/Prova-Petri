@@ -1,0 +1,47 @@
+<ion-content [fullscreen]="true">
+  <div id="posicionamento">
+    <ion-grid>
+      <h1 style="color:#0fdff7">Lista de Compra</h1>
+      <ion-row>
+        <ion-col size="5">
+          <ion-item>
+            <ion-input placeholder="Produto" [(ngModel)]="texto" (keyup.enter)="adiciona()" style="color:#0fdff7"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="4">
+          <ion-item>
+            <ion-input placeholder="Preço" [(ngModel)]="preco" (keyup.enter)="adiciona()" style="color:#0fdff7"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button color="primary" size="small" (click)="adiciona()">
+            <ion-icon name="save-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item *ngFor = "let elemento_da_lista of variavel_lista;">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="5" style="color:#0fdff7">
+                  {{elemento_da_lista[1][0]}} <!-- Exibir nome do item da lista-->
+                </ion-col>
+                <ion-col size="4" style="color:#0fdff7">
+                  {{elemento_da_lista[1][1]}} <!-- Exibir preço do item da lista-->
+                </ion-col>
+                <ion-col size="3">
+                  <ion-button color="secondary" size="small" (click)="remove(elemento_da_lista[0][0])"> <!-- envia como parâmetro o indice do elemento da lista-->
+                    <ion-icon name="trash-outline"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+</ion-content>
